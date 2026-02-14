@@ -1,0 +1,39 @@
+import java.io.FileReader;
+import java.io.IOException;
+
+public class CheckedExceptionDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Checked Exception Example:");
+
+        try {
+            FileReader file = new FileReader("test.txt");  
+            System.out.println("File opened successfully.");
+        } 
+        catch (IOException e) {
+            System.out.println("File not found or cannot be opened.");
+        }
+
+        System.out.println("Program continues...");
+    }
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+public class UncheckedExceptionDemo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Unchecked Exception Example:");
+
+        int a = 10;
+        int b = 0;
+
+        int result = a / b;   // ArithmeticException at runtime
+
+        System.out.println("Result: " + result);
+        System.out.println("Program continues...");
+    }
+}
