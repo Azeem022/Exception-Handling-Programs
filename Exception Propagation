@@ -1,0 +1,40 @@
+✅ What is Exception Propagation?
+
+Exception Propagation means an exception moves (propagates) from one method to another up the call stack until it is handled.
+
+If a method does not handle the exception, it passes it to the calling method.
+==================================================================================
+
+public class ExceptionPropagationDemo {
+
+    // Method 1
+    static void method1() {
+        int data = 10 / 0;   // Exception occurs here
+    }
+
+    // Method 2
+    static void method2() {
+        method1();   // Exception propagates here
+    }
+
+    // Method 3
+    static void method3() {
+        try {
+            method2();   // Exception handled here
+        } catch (ArithmeticException e) {
+            System.out.println("Exception handled in method3");
+        }
+    }
+
+
+
+
+=======================
+✅ Output
+Exception handled in method3
+Program continues...
+    public static void main(String[] args) {
+        method3();
+        System.out.println("Program continues...");
+    }
+}
